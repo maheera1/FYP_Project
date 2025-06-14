@@ -4,6 +4,7 @@ import User from "@/models/User"
 
 export async function POST(request: NextRequest) {
   try {
+    // Connect to database
     await dbConnect()
 
     const { email, password } = await request.json()

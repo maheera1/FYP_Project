@@ -1,7 +1,7 @@
 import Navigation from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Bot, MessageSquare, Zap, Shield, Users, ArrowRight } from "lucide-react"
+import { Bot, MessageSquare, Zap, Shield, Users, ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
@@ -28,9 +28,16 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3">
-                Learn More
-              </Button>
+              <a
+                href="https://drive.google.com/drive/folders/1Ty56OsZww-awFoEGys6zT9Ci3MVc19Uk?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" variant="outline" className="text-lg px-8 py-3">
+                  <Play className="mr-2 h-5 w-5" />
+                  Watch Demo
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -144,8 +151,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Demo Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">See It In Action</h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Watch our comprehensive demo to see how our AI chatbot can transform your conversations
+            </p>
+            <a
+              href="https://drive.google.com/drive/folders/1Ty56OsZww-awFoEGys6zT9Ci3MVc19Uk?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="text-lg px-8 py-3">
+                <Play className="mr-2 h-5 w-5" />
+                Watch Full Demo
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-background">
+      <section id="contact" className="py-20 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ready to Get Started?</h2>
