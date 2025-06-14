@@ -1,0 +1,20 @@
+.side-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.side-image {
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .side-image {
+    object-position: left;
+    width: auto;
+    max-width: none;
+  }
+}

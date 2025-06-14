@@ -1,13 +1,11 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
+import type { Metadata } from "next"
+import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: "Vercel",
-  description: "Develop. Preview. Ship.",
+  title: "ArchiMorph - AI-Powered 2D Floor Plans",
+  description: "Design smarter with AI-powered 2D floor plans. Architectural ideation, accelerated.",
     generator: 'v0.dev'
 }
 
@@ -18,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

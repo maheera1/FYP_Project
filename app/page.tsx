@@ -1,103 +1,308 @@
+import Image from "next/image"
 import Link from "next/link"
+import { ArrowRight, Play } from "lucide-react"
+import Header from "@/components/header"
+import ChatBotIcon from "@/components/chat-bot-icon"
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="flex justify-between items-center p-6">
-        <div className="flex items-center">
-          <div className="w-6 h-6 bg-black" style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}></div>
-        </div>
-        <div className="flex items-center space-x-6">
-          <Link href="/contact" className="text-gray-600 hover:text-gray-900">
-            Contact
-          </Link>
-          <Link href="/signup" className="text-gray-600 hover:text-gray-900">
-            Sign Up
-          </Link>
-        </div>
-      </header>
+    <div className="flex flex-col min-h-screen">
+      <Header currentPage="home" />
+      <ChatBotIcon />
 
-      {/* Main Content */}
-      <div className="flex items-center justify-center min-h-[80vh]">
-        <div className="w-full max-w-md">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-semibold text-gray-900 mb-8">Log in to Vercel</h1>
-          </div>
-
-          <div className="space-y-4">
-            <div>
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-
-            <button className="w-full bg-black text-white py-3 px-4 rounded-md hover:bg-gray-800 transition-colors">
-              Continue with Email
-            </button>
-
-            <div className="space-y-3 mt-6">
-              <button className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
-                  <path
-                    fill="#4285F4"
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                  />
-                  <path
-                    fill="#34A853"
-                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                  />
-                  <path
-                    fill="#FBBC05"
-                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                  />
-                  <path
-                    fill="#EA4335"
-                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                  />
-                </svg>
-                Continue with Google
-              </button>
-
-              <button className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                Continue with GitHub
-              </button>
-
-              <button className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-                Continue with SAML SSO
-              </button>
-
-              <button className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
-                </svg>
-                Continue with Passkey
-              </button>
-            </div>
-
-            <div className="text-center mt-6">
-              <button className="text-gray-600 hover:text-gray-900 text-sm">Show other options</button>
-            </div>
-
-            <div className="text-center mt-6">
-              <span className="text-gray-600 text-sm">
-                Don't have an account?{" "}
-                <Link href="/signup" className="text-blue-600 hover:text-blue-800">
-                  Sign Up
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="bg-[#e6dfd5] py-16 md:py-24">
+          <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#3a2e27] leading-tight">
+                Design Smarter with AI-Powered 2D Floor Plans
+              </h1>
+              <p className="text-lg text-[#5a4a40]">
+                Architectural ideation, accelerated. Specify, customize, and generate floor plans that adapt to site and
+                style.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/chat">
+                  <button className="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors flex items-center gap-2 group">
+                    Start Designing
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </Link>
-              </span>
+                <button className="px-6 py-3 bg-white text-[#3a2e27] rounded-md border border-[#3a2e27] hover:bg-gray-100 transition-colors flex items-center gap-2">
+                  <Play className="w-4 h-4" />
+                  Watch Demo
+                </button>
+              </div>
+              <p className="text-sm text-[#5a4a40] italic">ArchiMorph 7 Features Preview</p>
+            </div>
+            <div className="relative">
+              <div className="border-2 border-[#3a2e27] p-2 rotate-3 bg-white hover-rotate transition-transform duration-300">
+                <div className="border border-gray-300 p-4">
+                  <Image
+                    src="/11-removebg-preview.png"
+                    alt="Floor Plan Preview"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -right-4 animate-pulse">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                    fill="#3a2e27"
+                    stroke="#3a2e27"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="py-16 md:py-24 bg-[#f5f2ee]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#3a2e27] mb-16">Features</h2>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Feature 1 */}
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center group hover:-translate-y-2">
+                <div className="mb-6 p-4 bg-blue-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <Image src="/prototype.png" alt="AI Generated Layouts" width={80} height={80} />
+                </div>
+                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">AI Generated Layouts</h3>
+                <p className="text-[#5a4a40] leading-relaxed">
+                  Get instant, smart 2D floor plans powered by machine learning.
+                </p>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center group hover:-translate-y-2">
+                <div className="mb-6 p-4 bg-green-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <Image src="/chatbot.png" alt="NLP Chatbot" width={80} height={80} />
+                </div>
+                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">NLP Chatbot</h3>
+                <p className="text-[#5a4a40] leading-relaxed">
+                  Chat naturally with ArchiMorph to describe your design needs with minimal input needed.
+                </p>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center group hover:-translate-y-2">
+                <div className="mb-6 p-4 bg-red-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <Image src="/map.png" alt="Site-Specific Design" width={80} height={80} />
+                </div>
+                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">Site-Specific Design</h3>
+                <p className="text-[#5a4a40] leading-relaxed">
+                  Generate layouts that adapt to your location's topography and zoning data.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How it Works Section (Placeholder) */}
+        <section id="how-it-works" className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#3a2e27] mb-8">How it Works</h2>
+            <p className="text-lg text-[#5a4a40] max-w-2xl mx-auto">
+              Our intuitive process makes architectural design accessible to everyone.
+            </p>
+
+            {/* This section would be expanded with actual content */}
+            <div className="mt-12 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="p-6 bg-[#f5f2ee] rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-[#e6dfd5] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[#3a2e27]">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">Input Requirements</h3>
+                <p className="text-[#5a4a40]">Describe your needs or upload site plans</p>
+              </div>
+
+              <div className="p-6 bg-[#f5f2ee] rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-[#e6dfd5] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[#3a2e27]">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">AI Processing</h3>
+                <p className="text-[#5a4a40]">Our algorithms generate optimal layouts</p>
+              </div>
+
+              <div className="p-6 bg-[#f5f2ee] rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-[#e6dfd5] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[#3a2e27]">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">Customize & Export</h3>
+                <p className="text-[#5a4a40]">Fine-tune and download your floor plans</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#3a2e27] text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-4">About</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Our Story
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Team
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Careers
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold mb-4">Contact</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Support
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Sales
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Partnerships
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Documentation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Tutorials
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:underline transition-all">
+                    Cookie Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+            <p>© 2025 ArchiMorph. Crafted for architects, powered by AI.</p>
+            <div className="flex gap-4 mt-4 md:mt-0">
+              <Link href="#" className="hover:text-gray-300 transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </Link>
+              <Link href="#" className="hover:text-gray-300 transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+              </Link>
+              <Link href="#" className="hover:text-gray-300 transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </Link>
+              <Link href="#" className="hover:text-gray-300 transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }
