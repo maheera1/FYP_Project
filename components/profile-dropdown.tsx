@@ -5,11 +5,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { Settings, LogOut, ChevronDown } from "lucide-react"
 import { useSettings } from "@/contexts/settings-context"
+import { useAuth } from "@/contexts/auth-context"
 
 export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const { profileImage, isDarkMode } = useSettings()
+  const { logout, user } = useAuth()
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -25,11 +27,7 @@ export default function ProfileDropdown() {
   }, [])
 
   const handleLogout = () => {
-    // This would connect to Flask backend for logout
-    console.log("Logging out...")
-    // Clear settings if needed
-    localStorage.removeItem("archimorph-settings")
-    // Redirect to login page
+    logout()
     window.location.href = "/login"
   }
 
@@ -40,7 +38,7 @@ export default function ProfileDropdown() {
         className="flex items-center gap-1 hover:opacity-80 transition-opacity"
       >
         <Image
-          src={profileImage || "/user.png"}
+          src={user?.profileImage || profileImage || "/user.png"}
           alt="Profile"
           width={40}
           height={40}

@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Play } from "lucide-react"
@@ -5,6 +7,10 @@ import Header from "@/components/header"
 import ChatBotIcon from "@/components/chat-bot-icon"
 
 export default function Home() {
+  const handleWatchDemo = () => {
+    window.open("https://drive.google.com/file/d/1-Wpt7GZJ2-QajHayXUS3tgBWNuZfpNJv/view", "_blank")
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header currentPage="home" />
@@ -29,7 +35,10 @@ export default function Home() {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </Link>
-                <button className="px-6 py-3 bg-white dark:bg-gray-800 text-[#3a2e27] dark:text-white rounded-md border border-[#3a2e27] dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2">
+                <button
+                  onClick={handleWatchDemo}
+                  className="px-6 py-3 bg-white dark:bg-gray-800 text-[#3a2e27] dark:text-white rounded-md border border-[#3a2e27] dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
+                >
                   <Play className="w-4 h-4" />
                   Watch Demo
                 </button>

@@ -4,8 +4,10 @@ import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, Send, Plus, MessageSquare } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { ArrowLeft, Send, Plus, MessageSquare, Lock } from "lucide-react"
 import Header from "@/components/header"
+import { useAuth } from "@/contexts/auth-context"
 
 interface Message {
   id: string
@@ -20,6 +22,9 @@ interface ChatExample {
 }
 
 export default function ChatPage() {
+  const { isAuthenticated, isLoading } = useAuth()
+  const router = useRouter()
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -50,14 +55,21 @@ export default function ChatPage() {
   ]
 
   useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      // Redirect to login if not authenticated
+      router.push("/login")
+    }
+  }, [isAuthenticated, isLoading, router])
+
+  useEffect(() => {
     scrollToBottom()
   }, [messages])
 
   useEffect(() => {
-    if (inputRef.current) {
+    if (inputRef.current && isAuthenticated) {
       inputRef.current.focus()
     }
-  }, [])
+  }, [isAuthenticated])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -101,6 +113,53 @@ export default function ChatPage() {
     if (inputRef.current) {
       inputRef.current.focus()
     }
+  }
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="flex flex-col h-screen bg-[#f5f2ee] dark:bg-gray-900">
+        <Header currentPage="chat" />
+        <div className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3a2e27] dark:border-white mx-auto mb-4"></div>
+            <p className="text-[#3a2e27] dark:text-white">Loading...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Show login required message
+  if (!isAuthenticated) {
+    return (
+      <div className="flex flex-col h-screen bg-[#f5f2ee] dark:bg-gray-900">
+        <Header currentPage="chat" />
+        <div className="flex-grow flex items-center justify-center">
+          <div className="text-center max-w-md mx-auto p-8">
+            <Lock className="w-16 h-16 text-[#3a2e27] dark:text-white mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-[#3a2e27] dark:text-white mb-4">Login Required</h2>
+            <p className="text-[#5a4a40] dark:text-gray-300 mb-6">
+              You need to be logged in to access the AI Chat Assistant. Please sign up or log in to continue.
+            </p>
+            <div className="flex gap-4 justify-center">
+              <Link
+                href="/login"
+                className="px-6 py-3 bg-[#3a2e27] dark:bg-gray-700 text-white rounded-md hover:bg-[#4a3e37] dark:hover:bg-gray-600 transition-colors"
+              >
+                Log In
+              </Link>
+              <Link
+                href="/signup"
+                className="px-6 py-3 border border-[#3a2e27] dark:border-gray-600 text-[#3a2e27] dark:text-white rounded-md hover:bg-[#3a2e27] hover:text-white dark:hover:bg-gray-700 transition-colors"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

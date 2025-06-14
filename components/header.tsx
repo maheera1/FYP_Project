@@ -7,6 +7,7 @@ import { Menu } from "lucide-react"
 import MobileMenu from "./mobile-menu"
 import ProfileDropdown from "./profile-dropdown"
 import { useSettings } from "@/contexts/settings-context"
+import { useAuth } from "@/contexts/auth-context"
 
 interface HeaderProps {
   currentPage?: string
@@ -16,6 +17,7 @@ export default function Header({ currentPage = "" }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const { isDarkMode } = useSettings()
+  const { isAuthenticated, user } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +45,7 @@ export default function Header({ currentPage = "" }: HeaderProps) {
 
   const isActive = (page: string) => {
     if (page === "home") {
-      return currentPage === "home" || (currentPage === "" && activeSection === "")
+      return (currentPage === "home" || currentPage === "") && activeSection === ""
     }
     if (page === "features") {
       return currentPage === "features" || activeSection === "features"
@@ -112,26 +114,32 @@ export default function Header({ currentPage = "" }: HeaderProps) {
             >
               Chat
             </Link>
-            <Link
-              href="/login"
-              className={`px-4 py-1 border rounded-md transition-colors ${
-                isDarkMode
-                  ? "border-white text-white hover:bg-white hover:text-gray-800"
-                  : "border-[#3a2e27] text-[#3a2e27] hover:bg-[#3a2e27] hover:text-white"
-              }`}
-            >
-              Login
-            </Link>
+
+            {!isAuthenticated ? (
+              <Link
+                href="/login"
+                className={`px-4 py-1 border rounded-md transition-colors ${
+                  isDarkMode
+                    ? "border-white text-white hover:bg-white hover:text-gray-800"
+                    : "border-[#3a2e27] text-[#3a2e27] hover:bg-[#3a2e27] hover:text-white"
+                }`}
+              >
+                Login
+              </Link>
+            ) : (
+              <div className="flex items-center gap-3">
+                <span className={`text-sm ${isDarkMode ? "text-white" : "text-[#3a2e27]"}`}>
+                  Welcome, {user?.firstName}
+                </span>
+                <ProfileDropdown />
+              </div>
+            )}
           </nav>
 
           <div className="md:hidden">
             <button className={isDarkMode ? "text-white" : "text-[#3a2e27]"} onClick={() => setIsMobileMenuOpen(true)}>
               <Menu className="w-6 h-6" />
             </button>
-          </div>
-
-          <div className="hidden md:block">
-            <ProfileDropdown />
           </div>
         </div>
       </header>
