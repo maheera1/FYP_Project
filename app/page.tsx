@@ -12,32 +12,32 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-[#e6dfd5] py-16 md:py-24">
+        <section className="bg-[#e6dfd5] dark:bg-gray-900 py-16 md:py-24">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#3a2e27] leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#3a2e27] dark:text-white leading-tight">
                 Design Smarter with AI-Powered 2D Floor Plans
               </h1>
-              <p className="text-lg text-[#5a4a40]">
+              <p className="text-lg text-[#5a4a40] dark:text-gray-300">
                 Architectural ideation, accelerated. Specify, customize, and generate floor plans that adapt to site and
                 style.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/chat">
-                  <button className="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors flex items-center gap-2 group">
+                  <button className="px-6 py-3 bg-black dark:bg-white text-white dark:text-gray-900 rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center gap-2 group">
                     Start Designing
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </Link>
-                <button className="px-6 py-3 bg-white text-[#3a2e27] rounded-md border border-[#3a2e27] hover:bg-gray-100 transition-colors flex items-center gap-2">
+                <button className="px-6 py-3 bg-white dark:bg-gray-800 text-[#3a2e27] dark:text-white rounded-md border border-[#3a2e27] dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2">
                   <Play className="w-4 h-4" />
                   Watch Demo
                 </button>
               </div>
-              <p className="text-sm text-[#5a4a40] italic">ArchiMorph 7 Features Preview</p>
+              <p className="text-sm text-[#5a4a40] dark:text-gray-400 italic">ArchiMorph 7 Features Preview</p>
             </div>
             <div className="relative">
-              <div className="border-2 border-[#3a2e27] p-2 rotate-3 bg-white hover-rotate transition-transform duration-300">
+              <div className="border-2 border-[#3a2e27] dark:border-white p-2 rotate-3 bg-white dark:bg-gray-800 hover-rotate transition-transform duration-300">
                 <div className="border border-gray-300 p-4">
                   <Image
                     src="/11-removebg-preview.png"
@@ -52,11 +52,12 @@ export default function Home() {
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
-                    fill="#3a2e27"
-                    stroke="#3a2e27"
+                    fill="currentColor"
+                    stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="text-[#3a2e27] dark:text-white"
                   />
                 </svg>
               </div>
@@ -65,40 +66,42 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="py-16 md:py-24 bg-[#f5f2ee]">
+        <section id="features" className="py-16 md:py-24 bg-[#f5f2ee] dark:bg-gray-800">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#3a2e27] mb-16">Features</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#3a2e27] dark:text-white mb-16">
+              Features
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Feature 1 */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center group hover:-translate-y-2">
+              <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 flex flex-col items-center text-center group hover:-translate-y-2">
                 <div className="mb-6 p-4 bg-blue-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Image src="/prototype.png" alt="AI Generated Layouts" width={80} height={80} />
                 </div>
-                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">AI Generated Layouts</h3>
-                <p className="text-[#5a4a40] leading-relaxed">
+                <h3 className="text-xl font-bold text-[#3a2e27] dark:text-white mb-3">AI Generated Layouts</h3>
+                <p className="text-[#5a4a40] dark:text-gray-300 leading-relaxed">
                   Get instant, smart 2D floor plans powered by machine learning.
                 </p>
               </div>
 
               {/* Feature 2 */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center group hover:-translate-y-2">
+              <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 flex flex-col items-center text-center group hover:-translate-y-2">
                 <div className="mb-6 p-4 bg-green-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Image src="/chatbot.png" alt="NLP Chatbot" width={80} height={80} />
                 </div>
-                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">NLP Chatbot</h3>
-                <p className="text-[#5a4a40] leading-relaxed">
+                <h3 className="text-xl font-bold text-[#3a2e27] dark:text-white mb-3">NLP Chatbot</h3>
+                <p className="text-[#5a4a40] dark:text-gray-300 leading-relaxed">
                   Chat naturally with ArchiMorph to describe your design needs with minimal input needed.
                 </p>
               </div>
 
               {/* Feature 3 */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center group hover:-translate-y-2">
+              <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 flex flex-col items-center text-center group hover:-translate-y-2">
                 <div className="mb-6 p-4 bg-red-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Image src="/map.png" alt="Site-Specific Design" width={80} height={80} />
                 </div>
-                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">Site-Specific Design</h3>
-                <p className="text-[#5a4a40] leading-relaxed">
+                <h3 className="text-xl font-bold text-[#3a2e27] dark:text-white mb-3">Site-Specific Design</h3>
+                <p className="text-[#5a4a40] dark:text-gray-300 leading-relaxed">
                   Generate layouts that adapt to your location's topography and zoning data.
                 </p>
               </div>
@@ -106,45 +109,44 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How it Works Section (Placeholder) */}
-        <section id="how-it-works" className="py-16 md:py-24 bg-white">
+        {/* How it Works Section */}
+        <section id="how-it-works" className="py-16 md:py-24 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#3a2e27] mb-8">How it Works</h2>
-            <p className="text-lg text-[#5a4a40] max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#3a2e27] dark:text-white mb-8">How it Works</h2>
+            <p className="text-lg text-[#5a4a40] dark:text-gray-300 max-w-2xl mx-auto">
               Our intuitive process makes architectural design accessible to everyone.
             </p>
 
-            {/* This section would be expanded with actual content */}
             <div className="mt-12 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="p-6 bg-[#f5f2ee] rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="w-16 h-16 bg-[#e6dfd5] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-[#3a2e27]">1</span>
+              <div className="p-6 bg-[#f5f2ee] dark:bg-gray-800 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-[#e6dfd5] dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[#3a2e27] dark:text-white">1</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">Input Requirements</h3>
-                <p className="text-[#5a4a40]">Describe your needs or upload site plans</p>
+                <h3 className="text-xl font-bold text-[#3a2e27] dark:text-white mb-3">Input Requirements</h3>
+                <p className="text-[#5a4a40] dark:text-gray-300">Describe your needs or upload site plans</p>
               </div>
 
-              <div className="p-6 bg-[#f5f2ee] rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="w-16 h-16 bg-[#e6dfd5] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-[#3a2e27]">2</span>
+              <div className="p-6 bg-[#f5f2ee] dark:bg-gray-800 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-[#e6dfd5] dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[#3a2e27] dark:text-white">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">AI Processing</h3>
-                <p className="text-[#5a4a40]">Our algorithms generate optimal layouts</p>
+                <h3 className="text-xl font-bold text-[#3a2e27] dark:text-white mb-3">AI Processing</h3>
+                <p className="text-[#5a4a40] dark:text-gray-300">Our algorithms generate optimal layouts</p>
               </div>
 
-              <div className="p-6 bg-[#f5f2ee] rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="w-16 h-16 bg-[#e6dfd5] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-[#3a2e27]">3</span>
+              <div className="p-6 bg-[#f5f2ee] dark:bg-gray-800 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-[#e6dfd5] dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[#3a2e27] dark:text-white">3</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#3a2e27] mb-3">Customize & Export</h3>
-                <p className="text-[#5a4a40]">Fine-tune and download your floor plans</p>
+                <h3 className="text-xl font-bold text-[#3a2e27] dark:text-white mb-3">Customize & Export</h3>
+                <p className="text-[#5a4a40] dark:text-gray-300">Fine-tune and download your floor plans</p>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-[#3a2e27] text-white py-8">
+      <footer className="bg-[#3a2e27] dark:bg-gray-900 text-white dark:text-gray-300 py-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
@@ -235,7 +237,7 @@ export default function Home() {
           <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
             <p>© 2025 ArchiMorph. Crafted for architects, powered by AI.</p>
             <div className="flex gap-4 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-gray-300 transition-colors">
+              <Link href="#" className="hover:text-gray-300 dark:hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -250,7 +252,7 @@ export default function Home() {
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                 </svg>
               </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
+              <Link href="#" className="hover:text-gray-300 dark:hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -265,7 +267,7 @@ export default function Home() {
                   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
                 </svg>
               </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
+              <Link href="#" className="hover:text-gray-300 dark:hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -282,7 +284,7 @@ export default function Home() {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
+              <Link href="#" className="hover:text-gray-300 dark:hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

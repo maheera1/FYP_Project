@@ -104,28 +104,28 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-[#f5f2ee]">
+    <div className="flex flex-col h-screen bg-[#f5f2ee] dark:bg-gray-900">
       <Header currentPage="chat" />
 
       <div className="flex flex-grow overflow-hidden">
         {/* Sidebar */}
-        <div className="w-64 bg-[#e6dfd5] p-4 flex flex-col border-r border-gray-300 hidden md:flex">
+        <div className="w-64 bg-[#e6dfd5] dark:bg-gray-800 p-4 flex flex-col border-r border-gray-300 dark:border-gray-700 hidden md:flex">
           <Link
             href="/chat"
-            className="bg-[#3a2e27] text-white rounded-md py-2 px-4 flex items-center justify-center gap-2 hover:bg-[#4a3e37] transition-colors mb-6"
+            className="bg-[#3a2e27] dark:bg-gray-700 text-white rounded-md py-2 px-4 flex items-center justify-center gap-2 hover:bg-[#4a3e37] dark:hover:bg-gray-600 transition-colors mb-6"
           >
             <Plus size={18} />
             <span>New Chat</span>
           </Link>
 
           <div className="mb-4">
-            <h3 className="text-[#3a2e27] font-medium mb-2">Recent chats</h3>
+            <h3 className="text-[#3a2e27] dark:text-white font-medium mb-2">Recent chats</h3>
             <ul className="space-y-2">
               {recentChats.map((chat) => (
                 <li key={chat.id}>
                   <Link
                     href={`/chat/${chat.id}`}
-                    className="flex items-center gap-2 text-[#5a4a40] hover:text-[#3a2e27] transition-colors py-1"
+                    className="flex items-center gap-2 text-[#5a4a40] dark:text-gray-300 hover:text-[#3a2e27] dark:hover:text-white transition-colors py-1"
                   >
                     <MessageSquare size={16} />
                     <span className="text-sm truncate">{chat.title}</span>
@@ -139,17 +139,17 @@ export default function ChatPage() {
         {/* Main Chat Area */}
         <div className="flex-grow flex flex-col">
           {/* Back button for mobile */}
-          <div className="md:hidden p-3 border-b border-gray-200 bg-white">
-            <Link href="/" className="flex items-center gap-2 text-[#3a2e27]">
+          <div className="md:hidden p-3 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <Link href="/" className="flex items-center gap-2 text-[#3a2e27] dark:text-white">
               <ArrowLeft size={20} />
               <span>Back to Home</span>
             </Link>
           </div>
 
           {/* Chat header */}
-          <div className="bg-[#e6dfd5] p-4 border-b border-gray-300">
-            <h1 className="text-2xl font-bold text-[#3a2e27]">AI Chat Assistant</h1>
-            <p className="text-[#5a4a40]">Tell us your dream space!</p>
+          <div className="bg-[#e6dfd5] dark:bg-gray-800 p-4 border-b border-gray-300 dark:border-gray-700">
+            <h1 className="text-2xl font-bold text-[#3a2e27] dark:text-white">AI Chat Assistant</h1>
+            <p className="text-[#5a4a40] dark:text-gray-300">Tell us your dream space!</p>
           </div>
 
           {/* Messages area */}
@@ -159,12 +159,14 @@ export default function ChatPage() {
                 <div
                   className={`max-w-[80%] rounded-lg p-3 ${
                     message.sender === "user"
-                      ? "bg-[#3a2e27] text-white rounded-tr-none"
-                      : "bg-white text-[#3a2e27] rounded-tl-none border border-gray-200"
+                      ? "bg-[#3a2e27] dark:bg-gray-700 text-white rounded-tr-none"
+                      : "bg-white dark:bg-gray-800 text-[#3a2e27] dark:text-white rounded-tl-none border border-gray-200 dark:border-gray-700"
                   }`}
                 >
                   <p>{message.content}</p>
-                  <div className={`text-xs mt-1 ${message.sender === "user" ? "text-gray-300" : "text-gray-500"}`}>
+                  <div
+                    className={`text-xs mt-1 ${message.sender === "user" ? "text-gray-300" : "text-gray-500 dark:text-gray-400"}`}
+                  >
                     {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                   </div>
                 </div>
@@ -178,7 +180,7 @@ export default function ChatPage() {
                   <div
                     key={example.id}
                     onClick={() => handleExampleClick(example)}
-                    className="bg-[#e6dfd5] p-4 rounded-lg cursor-pointer hover:bg-[#d6cfc5] transition-colors text-[#3a2e27]"
+                    className="bg-[#e6dfd5] dark:bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-[#d6cfc5] dark:hover:bg-gray-700 transition-colors text-[#3a2e27] dark:text-white"
                   >
                     {example.text}
                   </div>
@@ -190,8 +192,8 @@ export default function ChatPage() {
           </div>
 
           {/* Input area */}
-          <div className="p-4 border-t border-gray-200 bg-white">
-            <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-300 overflow-hidden">
+          <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div className="flex items-center gap-2 bg-white dark:bg-gray-700 rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
               <input
                 type="text"
                 ref={inputRef}
@@ -199,15 +201,15 @@ export default function ChatPage() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Describe your design..."
-                className="flex-grow px-4 py-3 focus:outline-none"
+                className="flex-grow px-4 py-3 focus:outline-none bg-transparent text-[#3a2e27] dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
                 className={`px-4 py-2 rounded-md mr-1 ${
                   inputValue.trim()
-                    ? "bg-[#3a2e27] text-white hover:bg-[#4a3e37]"
-                    : "bg-gray-200 text-gray-500 cursor-not-allowed"
+                    ? "bg-[#3a2e27] dark:bg-gray-600 text-white hover:bg-[#4a3e37] dark:hover:bg-gray-500"
+                    : "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed"
                 } transition-colors`}
               >
                 <Send size={18} />
